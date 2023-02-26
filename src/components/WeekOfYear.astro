@@ -1,11 +1,22 @@
 ---
-import { getISOWeek } from "date-fns";
+import { getISOWeek, endOfWeek, startOfWeek, format } from "date-fns";
+
+import { fr } from "date-fns/locale";
+
+const locales = { fr };
 
 const date = new Date();
 const weekNumber = getISOWeek(date);
 
-const lastWeekDay = "";
-const firstWeekDay = "";
+const lastWeekDay = format(endOfWeek(date), "EEEE d MMMM", {
+  locale: fr,
+  weekStartsOn: 0,
+});
+const firstWeekDay = format(startOfWeek(date), "EEEE d MMMM", {
+  locale: fr,
+  weekStartsOn: 0,
+});
 ---
 
 <h1>{weekNumber}</h1>
+<p>La semaine commence le {firstWeekDay} et se termine le {lastWeekDay}</p>
