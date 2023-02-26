@@ -1,0 +1,8 @@
+---
+import { getISOWeek } from "date-fns";
+
+const date = new Date();
+const weekNumber = getISOWeek(date);
+---
+
+<h1>{weekNumber}</h1>
