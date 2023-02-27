@@ -8,15 +8,27 @@ const locales = { fr };
 const date = new Date();
 const weekNumber = getISOWeek(date);
 
-const lastWeekDay = format(endOfWeek(date), "EEEE d MMMM", {
-  locale: fr,
-  weekStartsOn: 0,
-});
-const firstWeekDay = format(startOfWeek(date), "EEEE d MMMM", {
-  locale: fr,
-  weekStartsOn: 0,
-});
+const lastWeekDay = format(
+  endOfWeek(date, {
+    weekStartsOn: 1,
+  }),
+  "EEEE d MMMM",
+  {
+    locale: fr,
+  }
+);
+const firstWeekDay = format(
+  startOfWeek(date, {
+    weekStartsOn: 1,
+  }),
+  "EEEE d MMMM",
+  {
+    locale: fr,
+  }
+);
 ---
 
-<h1>{weekNumber}</h1>
-<p>La semaine commence le {firstWeekDay} et se termine le {lastWeekDay}</p>
+<div>
+  <h1>{weekNumber}</h1>
+  <p>La semaine commence le {firstWeekDay} et se termine le {lastWeekDay}</p>
+</div>
