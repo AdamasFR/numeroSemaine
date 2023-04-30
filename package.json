@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.15",
+    "astro": "^2.3.1",
     "date-fns": "^2.29.3",
     "sass": "^1.62.1"
   }

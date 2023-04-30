@@ -3,7 +3,7 @@ const { startDate } = Astro.props;
 
 import { getISOWeek, endOfWeek, startOfWeek, format, subDays } from "date-fns";
 
-import { fr } from "date-fns/locale";
+import { fr } from "date-fns/locale/index.js";
 
 const date = subDays(new Date(), startDate);
 const weekNumber = getISOWeek(date);
