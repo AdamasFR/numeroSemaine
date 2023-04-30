@@ -1,12 +1,23 @@
 ---
+import WeekList from "~components/WeekList.astro";
 import WeekOfYear from "../components/WeekOfYear.astro";
 import Layout from "../layouts/Layout.astro";
+import "~styles/app.component.scss";
+import ListOfWeeks from "~components/ListOfWeeks.astro";
+import Footer from "~components/Footer.astro";
 ---
 
 <Layout title="Numero de Semaine">
-  <main>
-    <WeekOfYear />
+  <main class="content">
+    <div class="weekOfYear">
+      <WeekOfYear />
+    </div>
+    <div class="listOfWeeks">
+      <ListOfWeeks />
+    </div>
   </main>
+
+  <Footer />
 </Layout>
 
 <style></style>

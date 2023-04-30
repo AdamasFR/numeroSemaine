@@ -8,6 +8,10 @@ const locales = { fr };
 const date = new Date();
 const weekNumber = getISOWeek(date);
 
+const currentDay = format(new Date(), "EEEE d MMMM", {
+  locale: fr,
+});
+
 const lastWeekDay = format(
   endOfWeek(date, {
     weekStartsOn: 1,
@@ -28,7 +32,12 @@ const firstWeekDay = format(
 );
 ---
 
-<div>
-  <h1>{weekNumber}</h1>
-  <p>La semaine commence le {firstWeekDay} et se termine le {lastWeekDay}</p>
+<div class="currentWeek">
+  <p class="title">
+    📅 Nous sommes le {currentDay}<br />le numéro de semaine est le
+  </p>
+  <p class="weekNumber">{weekNumber}</p>
+  <p class="weekDescription">
+    La semaine commence le {firstWeekDay} et se termine le {lastWeekDay}
+  </p>
 </div>

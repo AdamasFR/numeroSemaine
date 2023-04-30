@@ -1,0 +1,88 @@
+@import "variables.scss";
+@import "fonts.scss";
+
+html,
+body {
+  font-family: $fontName;
+  background: $backgroundColor;
+  background: $backgroundGradient;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  color: $textColor;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0px;
+}
+
+.content {
+  flex: 1 0 auto;
+  margin: 5px;
+}
+
+main {
+  flex: auto;
+  .weekOfYear {
+    text-align: center;
+  }
+
+  .listOfWeeks {
+    text-align: left;
+  }
+}
+
+.currentWeek {
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .weekNumber {
+    font-size: 200px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .weekDescription {
+    font-weight: 600;
+  }
+}
+.weeklist {
+  list-style: none;
+  padding-left: 0px;
+}
+
+// utils
+
+.bold {
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  height: 10vh;
+  background-color: $gunmetal;
+  color: $white;
+
+  flex-shrink: 0;
+
+  .contentFooter {
+    margin: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none; /* no underline */
+  }
+}
