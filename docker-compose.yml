@@ -1,0 +1,7 @@
+version: "2"
+services:
+  server:
+    image: admink/semaine:latest
+    network_mode: "bridge"
+    ports:
+      - "49162:8080"
