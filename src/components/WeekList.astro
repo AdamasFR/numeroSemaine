@@ -1,17 +1,17 @@
 ---
-const { startDate } = Astro.props;
+const { offsetWeek } = Astro.props;
 
-import { getISOWeek, endOfWeek, startOfWeek, format, subDays } from "date-fns";
+import { getISOWeek, endOfWeek, startOfWeek, format, subDays, subWeeks } from "date-fns";
 
 import { fr } from "date-fns/locale/index.js";
 
-const date = subDays(new Date(), startDate);
+const date = subWeeks(new Date(), offsetWeek);
 const weekNumber = getISOWeek(date);
 const lastWeekDay = format(
   endOfWeek(date, {
     weekStartsOn: 1,
   }),
-  "d MMMM",
+  "d MMMM yyyy",
   {
     locale: fr,
   }
@@ -20,7 +20,7 @@ const firstWeekDay = format(
   startOfWeek(date, {
     weekStartsOn: 1,
   }),
-  "d MMMM",
+  "d MMMM yyyy",
   {
     locale: fr,
   }
@@ -28,9 +28,9 @@ const firstWeekDay = format(
 
 var emoji = "";
 
-if (startDate > 0) {
+if (offsetWeek > 0) {
   emoji = "🆗";
-} else if (startDate < 0) {
+} else if (offsetWeek < 0) {
   emoji = "⏹️";
 } else {
   emoji = "⏺️";
