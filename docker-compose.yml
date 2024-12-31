@@ -8,10 +8,10 @@ services:
       - traefik_default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.adminklanding.rule=Host(`semaine.adm.ink`)"
-      - "traefik.http.routers.adminklanding.entrypoints=websecure"
-      - "traefik.http.routers.adminklanding.tls.certresolver=myresolver"
-      - "traefik.http.services.adminklanding.loadbalancer.server.port=8080"
+      - "traefik.http.routers.adminksemaine.rule=Host(`semaine.adm.ink`)"
+      - "traefik.http.routers.adminksemaine.entrypoints=websecure"
+      - "traefik.http.routers.adminksemaine.tls.certresolver=myresolver"
+      - "traefik.http.services.adminksemaine.loadbalancer.server.port=8080"
 networks:
   traefik_default:
     external: true
