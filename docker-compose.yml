@@ -1,7 +1,17 @@
 version: "2"
 services:
   server:
-    image: admink/semaine:latest
-    network_mode: "bridge"
-    ports:
-      - "49162:8080"
+    build:
+        dockerfile: Dockerfile
+        context: .
+    networks:
+      - traefik_default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adminklanding.rule=Host(`semaine.adm.ink`)"
+      - "traefik.http.routers.adminklanding.entrypoints=websecure"
+      - "traefik.http.routers.adminklanding.tls.certresolver=myresolver"
+      - "traefik.http.services.adminklanding.loadbalancer.server.port=8080"
+networks:
+  traefik_default:
+    external: true
